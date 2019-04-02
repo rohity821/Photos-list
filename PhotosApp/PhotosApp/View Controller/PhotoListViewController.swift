@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PhotoListViewController.swift
 //  PhotosApp
 //
 //  Created by Rohit Yadav on 02/04/19.
@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class PhotoListViewController: UIViewController {
+   
+    @IBOutlet weak var photosListTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
