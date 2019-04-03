@@ -10,6 +10,9 @@ import UIKit
 import SDWebImage
 
 protocol PhotoBrowserInterfaceProtocol {
+    /**
+     This method sets a preview image, view controller title and a url string to local variable which is used at the time viewDidLoad is called to show image in view
+     */
     func setImageUrl(urlString: String, previewImage: UIImage?, title:String)
 }
 

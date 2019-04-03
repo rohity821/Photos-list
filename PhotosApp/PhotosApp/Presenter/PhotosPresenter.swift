@@ -10,14 +10,29 @@ import Foundation
 
 protocol PhotosPresenterInterfaceProtocol : class {
     var delegate : PhotosPresenterDelegateProtocol? {get set}
+    /**
+     This is interface protocol method of presenter class, via which view controller says that presenter should fetch images
+     */
     func startFetchingImages()
+    
+    /**
+     This is the datasource method for view controller's tableView. This is called from tableview's method numberofRowsInSection
+     */
     func numberOfRows() -> Int
     func itemForRow(atIndexpath indexPath:IndexPath) -> ImageModel?
     func didSelectRow(atIndexpath : IndexPath, viewController:PhotoListViewController)
 }
 
 protocol PhotosPresenterDelegateProtocol : class {
+    
+    /**
+     This is a delegate method of presenter class which notifies view controller that it has fetched data successfully so that view can reload the data from presenter.
+     */
     func didFetchImagesSuccessfully()
+    
+    /**
+     This is a delegate method of presenter class which notifies view controller that there was a error in fetching data so that view can handle it accordingly.
+     */
     func didFetchImagesFailed()
 }
 
