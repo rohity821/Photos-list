@@ -15,11 +15,29 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var photosPresenter : PhotosPresenterInterfaceProtocol = PhotosPresenter()
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(PhotoListViewController.handleRefresh(_:)),
+                                 for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = UIColor.red
+        return refreshControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        photosListTableView.addSubview(refreshControl)
         photosPresenter.delegate = self
         showLoadingIndicator()
+        startFetchingData()
+    }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        startFetchingData()
+    }
+    
+    func startFetchingData() {
         photosPresenter.startFetchingImages()
     }
     
@@ -29,9 +47,9 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "imageCell"
-        let tableCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier);
-        if let cell = tableCell as? PhotosTableViewCell, let model = photosPresenter.itemForRow(atIndexpath: indexPath) {
+        let tableCell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier);
+        if let cell = tableCell as? (UITableViewCell & PhotosTableCellInterfaceProtocol),
+            let model = photosPresenter.itemForRow(atIndexpath: indexPath) {
             cell.updateCell(withTitle: model.title, andThumbUrl: model.thumbnailUrl)
             return cell
         }
@@ -62,7 +80,6 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
             DispatchQueue.main.async {
                 self.reloadTable()
             }
-            
             return
         }
         photosListTableView.reloadData()
@@ -75,7 +92,7 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func didFetchImagesFailed() {
-        //Handle error 
+        //Handle error
         hideLoadingIndicator()
     }
     
@@ -86,7 +103,17 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func hideLoadingIndicator() {
-        NVActivityIndicatorPresenter.sharedInstance.stopAnimating(nil)
+        if !Thread.isMainThread {
+            DispatchQueue.main.async {
+                self.hideLoadingIndicator()
+            }
+            return
+        }
+        if (refreshControl.isRefreshing) {
+            refreshControl.endRefreshing()
+        }else {
+            NVActivityIndicatorPresenter.sharedInstance.stopAnimating(nil)
+        }
     }
 
 
