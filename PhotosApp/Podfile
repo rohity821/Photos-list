@@ -28,6 +28,7 @@ target 'PhotosApp' do
 
   # Pods for PhotosApp
     pod 'SDWebImage', '~> 4.0'
+    pod 'NVActivityIndicatorView'
 
   target 'PhotosAppTests' do
     inherit! :search_paths

@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		54D33FFD9F4465E5E0253F96 /* Pods_PhotosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2DBE7554F8641132C29080 /* Pods_PhotosApp.framework */; };
-		84DBC6B6F2412442BF421ABE /* Pods_NetworkFrameworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0113CC5AD14D092B958689 /* Pods_NetworkFrameworkTests.framework */; };
-		89E5E642304558366050E889 /* Pods_NetworkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A43BD84CF0A215F7AE7DF879 /* Pods_NetworkFramework.framework */; };
 		A9BFA79D6289AFF73D39AF39 /* Pods_PhotosAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4960536352A62A73B6F2FD9 /* Pods_PhotosAppTests.framework */; };
 		C9A21F752252956300C8E62C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A21F742252956300C8E62C /* AppDelegate.swift */; };
 		C9A21F772252956300C8E62C /* PhotoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A21F762252956300C8E62C /* PhotoListViewController.swift */; };
@@ -17,19 +15,6 @@
 		C9A21F7C2252956600C8E62C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9A21F7B2252956600C8E62C /* Assets.xcassets */; };
 		C9A21F7F2252956600C8E62C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9A21F7D2252956600C8E62C /* LaunchScreen.storyboard */; };
 		C9A21F8A2252956600C8E62C /* PhotosAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A21F892252956600C8E62C /* PhotosAppTests.swift */; };
-		C9A21FA22252979300C8E62C /* NetworkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A21F992252979300C8E62C /* NetworkFramework.framework */; };
-		C9A21FA92252979300C8E62C /* NetworkFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A21FA82252979300C8E62C /* NetworkFrameworkTests.swift */; };
-		C9A21FAB2252979300C8E62C /* NetworkFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = C9A21F9B2252979300C8E62C /* NetworkFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C9A21FAE2252979300C8E62C /* NetworkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A21F992252979300C8E62C /* NetworkFramework.framework */; };
-		C9A21FAF2252979300C8E62C /* NetworkFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9A21F992252979300C8E62C /* NetworkFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C9A21FBC2252980300C8E62C /* APIResponseCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A21FB82252980200C8E62C /* APIResponseCache.swift */; };
-		C9A21FBD2252980300C8E62C /* EtagsTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A21FB92252980200C8E62C /* EtagsTask.swift */; };
-		C9A21FBE2252980300C8E62C /* EtagListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A21FBA2252980200C8E62C /* EtagListDataModel.swift */; };
-		C9A21FBF2252980300C8E62C /* EtagDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A21FBB2252980200C8E62C /* EtagDataModel.swift */; };
-		C9A21FC22252988500C8E62C /* NetworkUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A21FC12252988500C8E62C /* NetworkUtility.swift */; };
-		C9A21FC72252992300C8E62C /* NetworkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A21FC42252992200C8E62C /* NetworkInfo.swift */; };
-		C9A21FC82252992300C8E62C /* NetworkServiceTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A21FC52252992300C8E62C /* NetworkServiceTask.swift */; };
-		C9A21FC92252992300C8E62C /* NetworkProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A21FC62252992300C8E62C /* NetworkProperties.swift */; };
 		C9A21FD322529A1300C8E62C /* CommonLibrarySwift.h in Headers */ = {isa = PBXBuildFile; fileRef = C9A21FD122529A1300C8E62C /* CommonLibrarySwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C9A21FD622529A1300C8E62C /* CommonLibrarySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A21FCF22529A1300C8E62C /* CommonLibrarySwift.framework */; };
 		C9A21FD722529A1300C8E62C /* CommonLibrarySwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9A21FCF22529A1300C8E62C /* CommonLibrarySwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -38,6 +23,7 @@
 		C9A3247B2253DDD00085F34A /* PhotosPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A3247A2253DDD00085F34A /* PhotosPresenter.swift */; };
 		C9A3247E2253DE010085F34A /* PhotosInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A3247D2253DE010085F34A /* PhotosInteractor.swift */; };
 		C9A324802253DE640085F34A /* PhotosAPITask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A3247F2253DE640085F34A /* PhotosAPITask.swift */; };
+		C9BCEB9E22550BE900C36580 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BCEB9D22550BE900C36580 /* ImageModel.swift */; };
 		FA039DFD533F2465F5C53CC6 /* Pods_CommonLibrarySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90ACEC4A31EC3BAE045B6794 /* Pods_CommonLibrarySwift.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,27 +34,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = C9A21F702252956300C8E62C;
 			remoteInfo = PhotosApp;
-		};
-		C9A21FA32252979300C8E62C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C9A21F692252956300C8E62C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C9A21F982252979300C8E62C;
-			remoteInfo = NetworkFramework;
-		};
-		C9A21FA52252979300C8E62C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C9A21F692252956300C8E62C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C9A21F702252956300C8E62C;
-			remoteInfo = PhotosApp;
-		};
-		C9A21FAC2252979300C8E62C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C9A21F692252956300C8E62C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C9A21F982252979300C8E62C;
-			remoteInfo = NetworkFramework;
 		};
 		C9A21FD422529A1300C8E62C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -86,7 +51,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C9A21FAF2252979300C8E62C /* NetworkFramework.framework in Embed Frameworks */,
 				C9A21FD722529A1300C8E62C /* CommonLibrarySwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -116,20 +80,6 @@
 		C9A21F852252956600C8E62C /* PhotosAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotosAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9A21F892252956600C8E62C /* PhotosAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosAppTests.swift; sourceTree = "<group>"; };
 		C9A21F8B2252956600C8E62C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C9A21F992252979300C8E62C /* NetworkFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9A21F9B2252979300C8E62C /* NetworkFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkFramework.h; sourceTree = "<group>"; };
-		C9A21F9C2252979300C8E62C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C9A21FA12252979300C8E62C /* NetworkFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9A21FA82252979300C8E62C /* NetworkFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFrameworkTests.swift; sourceTree = "<group>"; };
-		C9A21FAA2252979300C8E62C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C9A21FB82252980200C8E62C /* APIResponseCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponseCache.swift; sourceTree = "<group>"; };
-		C9A21FB92252980200C8E62C /* EtagsTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EtagsTask.swift; sourceTree = "<group>"; };
-		C9A21FBA2252980200C8E62C /* EtagListDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EtagListDataModel.swift; sourceTree = "<group>"; };
-		C9A21FBB2252980200C8E62C /* EtagDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EtagDataModel.swift; sourceTree = "<group>"; };
-		C9A21FC12252988500C8E62C /* NetworkUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkUtility.swift; sourceTree = "<group>"; };
-		C9A21FC42252992200C8E62C /* NetworkInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkInfo.swift; sourceTree = "<group>"; };
-		C9A21FC52252992300C8E62C /* NetworkServiceTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceTask.swift; sourceTree = "<group>"; };
-		C9A21FC62252992300C8E62C /* NetworkProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkProperties.swift; sourceTree = "<group>"; };
 		C9A21FCF22529A1300C8E62C /* CommonLibrarySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonLibrarySwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9A21FD122529A1300C8E62C /* CommonLibrarySwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonLibrarySwift.h; sourceTree = "<group>"; };
 		C9A21FD222529A1300C8E62C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -138,6 +88,7 @@
 		C9A3247A2253DDD00085F34A /* PhotosPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPresenter.swift; sourceTree = "<group>"; };
 		C9A3247D2253DE010085F34A /* PhotosInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosInteractor.swift; sourceTree = "<group>"; };
 		C9A3247F2253DE640085F34A /* PhotosAPITask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosAPITask.swift; sourceTree = "<group>"; };
+		C9BCEB9D22550BE900C36580 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		D7D13FDC58167CE5579EB1CB /* Pods-PhotosAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotosAppTests.debug.xcconfig"; path = "Target Support Files/Pods-PhotosAppTests/Pods-PhotosAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D9D5B770F7DC0B63155BA831 /* Pods-CommonLibrarySwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonLibrarySwift.debug.xcconfig"; path = "Target Support Files/Pods-CommonLibrarySwift/Pods-CommonLibrarySwift.debug.xcconfig"; sourceTree = "<group>"; };
 		DF2DBE7554F8641132C29080 /* Pods_PhotosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,7 +100,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9A21FAE2252979300C8E62C /* NetworkFramework.framework in Frameworks */,
 				C9A21FD622529A1300C8E62C /* CommonLibrarySwift.framework in Frameworks */,
 				54D33FFD9F4465E5E0253F96 /* Pods_PhotosApp.framework in Frameworks */,
 			);
@@ -160,23 +110,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9BFA79D6289AFF73D39AF39 /* Pods_PhotosAppTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C9A21F962252979300C8E62C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				89E5E642304558366050E889 /* Pods_NetworkFramework.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C9A21F9E2252979300C8E62C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C9A21FA22252979300C8E62C /* NetworkFramework.framework in Frameworks */,
-				84DBC6B6F2412442BF421ABE /* Pods_NetworkFrameworkTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,8 +158,6 @@
 			children = (
 				C9A21F732252956300C8E62C /* PhotosApp */,
 				C9A21F882252956600C8E62C /* PhotosAppTests */,
-				C9A21F9A2252979300C8E62C /* NetworkFramework */,
-				C9A21FA72252979300C8E62C /* NetworkFrameworkTests */,
 				C9A21FD022529A1300C8E62C /* CommonLibrarySwift */,
 				C9A21F722252956300C8E62C /* Products */,
 				98C2EC9DC917DA53ADFC9E6D /* Pods */,
@@ -239,8 +170,6 @@
 			children = (
 				C9A21F712252956300C8E62C /* PhotosApp.app */,
 				C9A21F852252956600C8E62C /* PhotosAppTests.xctest */,
-				C9A21F992252979300C8E62C /* NetworkFramework.framework */,
-				C9A21FA12252979300C8E62C /* NetworkFrameworkTests.xctest */,
 				C9A21FCF22529A1300C8E62C /* CommonLibrarySwift.framework */,
 			);
 			name = Products;
@@ -249,6 +178,7 @@
 		C9A21F732252956300C8E62C /* PhotosApp */ = {
 			isa = PBXGroup;
 			children = (
+				C9BCEB9C22550B9700C36580 /* Model */,
 				C9A3247C2253DDE90085F34A /* Interactor */,
 				C9A324792253DDA00085F34A /* Presenter */,
 				C9A324742253DCC50085F34A /* View Controller */,
@@ -269,56 +199,6 @@
 				C9A21F8B2252956600C8E62C /* Info.plist */,
 			);
 			path = PhotosAppTests;
-			sourceTree = "<group>";
-		};
-		C9A21F9A2252979300C8E62C /* NetworkFramework */ = {
-			isa = PBXGroup;
-			children = (
-				C9A21FC3225298DC00C8E62C /* Network Task */,
-				C9A21FC02252985A00C8E62C /* Network Utility */,
-				C9A21FB7225297D400C8E62C /* ETagsTask */,
-				C9A21F9B2252979300C8E62C /* NetworkFramework.h */,
-				C9A21F9C2252979300C8E62C /* Info.plist */,
-			);
-			path = NetworkFramework;
-			sourceTree = "<group>";
-		};
-		C9A21FA72252979300C8E62C /* NetworkFrameworkTests */ = {
-			isa = PBXGroup;
-			children = (
-				C9A21FA82252979300C8E62C /* NetworkFrameworkTests.swift */,
-				C9A21FAA2252979300C8E62C /* Info.plist */,
-			);
-			path = NetworkFrameworkTests;
-			sourceTree = "<group>";
-		};
-		C9A21FB7225297D400C8E62C /* ETagsTask */ = {
-			isa = PBXGroup;
-			children = (
-				C9A21FB82252980200C8E62C /* APIResponseCache.swift */,
-				C9A21FBB2252980200C8E62C /* EtagDataModel.swift */,
-				C9A21FBA2252980200C8E62C /* EtagListDataModel.swift */,
-				C9A21FB92252980200C8E62C /* EtagsTask.swift */,
-			);
-			path = ETagsTask;
-			sourceTree = "<group>";
-		};
-		C9A21FC02252985A00C8E62C /* Network Utility */ = {
-			isa = PBXGroup;
-			children = (
-				C9A21FC12252988500C8E62C /* NetworkUtility.swift */,
-			);
-			path = "Network Utility";
-			sourceTree = "<group>";
-		};
-		C9A21FC3225298DC00C8E62C /* Network Task */ = {
-			isa = PBXGroup;
-			children = (
-				C9A21FC42252992200C8E62C /* NetworkInfo.swift */,
-				C9A21FC62252992300C8E62C /* NetworkProperties.swift */,
-				C9A21FC52252992300C8E62C /* NetworkServiceTask.swift */,
-			);
-			path = "Network Task";
 			sourceTree = "<group>";
 		};
 		C9A21FD022529A1300C8E62C /* CommonLibrarySwift */ = {
@@ -372,17 +252,17 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		C9BCEB9C22550B9700C36580 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C9BCEB9D22550BE900C36580 /* ImageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		C9A21F942252979300C8E62C /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C9A21FAB2252979300C8E62C /* NetworkFramework.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C9A21FCA22529A1300C8E62C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -408,7 +288,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				C9A21FAD2252979300C8E62C /* PBXTargetDependency */,
 				C9A21FD522529A1300C8E62C /* PBXTargetDependency */,
 			);
 			name = PhotosApp;
@@ -433,45 +312,6 @@
 			name = PhotosAppTests;
 			productName = PhotosAppTests;
 			productReference = C9A21F852252956600C8E62C /* PhotosAppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		C9A21F982252979300C8E62C /* NetworkFramework */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C9A21FB02252979300C8E62C /* Build configuration list for PBXNativeTarget "NetworkFramework" */;
-			buildPhases = (
-				E65DD35AACEE9AE3B31FCFFA /* [CP] Check Pods Manifest.lock */,
-				C9A21F942252979300C8E62C /* Headers */,
-				C9A21F952252979300C8E62C /* Sources */,
-				C9A21F962252979300C8E62C /* Frameworks */,
-				C9A21F972252979300C8E62C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = NetworkFramework;
-			productName = NetworkFramework;
-			productReference = C9A21F992252979300C8E62C /* NetworkFramework.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		C9A21FA02252979300C8E62C /* NetworkFrameworkTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C9A21FB42252979300C8E62C /* Build configuration list for PBXNativeTarget "NetworkFrameworkTests" */;
-			buildPhases = (
-				64C9B063DB8191B5EC867FFC /* [CP] Check Pods Manifest.lock */,
-				C9A21F9D2252979300C8E62C /* Sources */,
-				C9A21F9E2252979300C8E62C /* Frameworks */,
-				C9A21F9F2252979300C8E62C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C9A21FA42252979300C8E62C /* PBXTargetDependency */,
-				C9A21FA62252979300C8E62C /* PBXTargetDependency */,
-			);
-			name = NetworkFrameworkTests;
-			productName = NetworkFrameworkTests;
-			productReference = C9A21FA12252979300C8E62C /* NetworkFrameworkTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		C9A21FCE22529A1300C8E62C /* CommonLibrarySwift */ = {
@@ -512,15 +352,6 @@
 						LastSwiftMigration = 1020;
 						TestTargetID = C9A21F702252956300C8E62C;
 					};
-					C9A21F982252979300C8E62C = {
-						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1020;
-					};
-					C9A21FA02252979300C8E62C = {
-						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1020;
-						TestTargetID = C9A21F702252956300C8E62C;
-					};
 					C9A21FCE22529A1300C8E62C = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
@@ -542,8 +373,6 @@
 			targets = (
 				C9A21F702252956300C8E62C /* PhotosApp */,
 				C9A21F842252956600C8E62C /* PhotosAppTests */,
-				C9A21F982252979300C8E62C /* NetworkFramework */,
-				C9A21FA02252979300C8E62C /* NetworkFrameworkTests */,
 				C9A21FCE22529A1300C8E62C /* CommonLibrarySwift */,
 			);
 		};
@@ -567,20 +396,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C9A21F972252979300C8E62C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C9A21F9F2252979300C8E62C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C9A21FCD22529A1300C8E62C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -591,28 +406,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		64C9B063DB8191B5EC867FFC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-NetworkFrameworkTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7C43E6C8172CF8B1F8C59598 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -622,12 +415,14 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PhotosApp/Pods-PhotosApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -701,28 +496,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E65DD35AACEE9AE3B31FCFFA /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-NetworkFramework-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -736,6 +509,7 @@
 				C9A21F772252956300C8E62C /* PhotoListViewController.swift in Sources */,
 				C9A21F752252956300C8E62C /* AppDelegate.swift in Sources */,
 				C9A3247E2253DE010085F34A /* PhotosInteractor.swift in Sources */,
+				C9BCEB9E22550BE900C36580 /* ImageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,29 +518,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9A21F8A2252956600C8E62C /* PhotosAppTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C9A21F952252979300C8E62C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C9A21FBE2252980300C8E62C /* EtagListDataModel.swift in Sources */,
-				C9A21FC92252992300C8E62C /* NetworkProperties.swift in Sources */,
-				C9A21FBC2252980300C8E62C /* APIResponseCache.swift in Sources */,
-				C9A21FBF2252980300C8E62C /* EtagDataModel.swift in Sources */,
-				C9A21FBD2252980300C8E62C /* EtagsTask.swift in Sources */,
-				C9A21FC72252992300C8E62C /* NetworkInfo.swift in Sources */,
-				C9A21FC22252988500C8E62C /* NetworkUtility.swift in Sources */,
-				C9A21FC82252992300C8E62C /* NetworkServiceTask.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C9A21F9D2252979300C8E62C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C9A21FA92252979300C8E62C /* NetworkFrameworkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -785,21 +536,6 @@
 			isa = PBXTargetDependency;
 			target = C9A21F702252956300C8E62C /* PhotosApp */;
 			targetProxy = C9A21F862252956600C8E62C /* PBXContainerItemProxy */;
-		};
-		C9A21FA42252979300C8E62C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C9A21F982252979300C8E62C /* NetworkFramework */;
-			targetProxy = C9A21FA32252979300C8E62C /* PBXContainerItemProxy */;
-		};
-		C9A21FA62252979300C8E62C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C9A21F702252956300C8E62C /* PhotosApp */;
-			targetProxy = C9A21FA52252979300C8E62C /* PBXContainerItemProxy */;
-		};
-		C9A21FAD2252979300C8E62C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C9A21F982252979300C8E62C /* NetworkFramework */;
-			targetProxy = C9A21FAC2252979300C8E62C /* PBXContainerItemProxy */;
 		};
 		C9A21FD522529A1300C8E62C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1028,113 +764,6 @@
 			};
 			name = Release;
 		};
-		C9A21FB12252979300C8E62C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F98681025197AC7F7E15055E /* Pods-NetworkFramework.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = U8F43D7NVH;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = NetworkFramework/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rohit.NetworkFramework;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		C9A21FB22252979300C8E62C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4B1083F3678DFF7312AC23F9 /* Pods-NetworkFramework.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = U8F43D7NVH;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = NetworkFramework/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rohit.NetworkFramework;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		C9A21FB52252979300C8E62C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8418CA9CE70350DA592F673E /* Pods-NetworkFrameworkTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U8F43D7NVH;
-				INFOPLIST_FILE = NetworkFrameworkTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rohit.NetworkFrameworkTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotosApp.app/PhotosApp";
-			};
-			name = Debug;
-		};
-		C9A21FB62252979300C8E62C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0AB04E9D54F78B7933C69A27 /* Pods-NetworkFrameworkTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U8F43D7NVH;
-				INFOPLIST_FILE = NetworkFrameworkTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rohit.NetworkFrameworkTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotosApp.app/PhotosApp";
-			};
-			name = Release;
-		};
 		C9A21FD922529A1300C8E62C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D9D5B770F7DC0B63155BA831 /* Pods-CommonLibrarySwift.debug.xcconfig */;
@@ -1150,7 +779,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = CommonLibrarySwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1182,7 +811,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = CommonLibrarySwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1224,24 +853,6 @@
 			buildConfigurations = (
 				C9A21F922252956600C8E62C /* Debug */,
 				C9A21F932252956600C8E62C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C9A21FB02252979300C8E62C /* Build configuration list for PBXNativeTarget "NetworkFramework" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C9A21FB12252979300C8E62C /* Debug */,
-				C9A21FB22252979300C8E62C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C9A21FB42252979300C8E62C /* Build configuration list for PBXNativeTarget "NetworkFrameworkTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C9A21FB52252979300C8E62C /* Debug */,
-				C9A21FB62252979300C8E62C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

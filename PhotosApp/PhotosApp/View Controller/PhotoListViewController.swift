@@ -7,14 +7,71 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
-class PhotoListViewController: UIViewController {
-   
+class PhotoListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PhotosPresenterDelegateProtocol {
+    
     @IBOutlet weak var photosListTableView: UITableView!
+    
+    var photosPresenter : PhotosPresenterInterfaceProtocol = PhotosPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        photosPresenter.delegate = self
+        showLoadingIndicator()
+        photosPresenter.startFetchingImages()
+    }
+    
+    //MARK: UITableViewDatasource
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return photosPresenter.numberOfRows()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = "imageCell"
+        let tableCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier);
+        if let cell = tableCell as? PhotosTableViewCell, let model = photosPresenter.itemForRow(atIndexpath: indexPath) {
+            cell.updateCell(withTitle: model.title, andThumbUrl: model.thumbnailUrl)
+            return cell
+        }
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 114.0
+    }
+    
+    func reloadTable() {
+        if !Thread.isMainThread {
+            DispatchQueue.main.async {
+                self.reloadTable()
+            }
+            
+            return
+        }
+        photosListTableView.reloadData()
+    }
+    
+    //MARK: PhotosPresenterDelegateProtocol
+    func didFetchImagesSuccessfully() {
+        hideLoadingIndicator()
+        reloadTable()
+    }
+    
+    func didFetchImagesFailed() {
+        //Handle error 
+        hideLoadingIndicator()
+    }
+    
+    //MARK: Loading Indicator
+    func showLoadingIndicator() {
+        let activityData = ActivityData(size: nil, message: nil, messageFont: nil, messageSpacing: nil, type: .ballClipRotateMultiple, color: nil, padding: nil, displayTimeThreshold: nil, minimumDisplayTime: nil, backgroundColor: nil, textColor: nil)
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, nil)
+    }
+    
+    func hideLoadingIndicator() {
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating(nil)
     }
 
 
