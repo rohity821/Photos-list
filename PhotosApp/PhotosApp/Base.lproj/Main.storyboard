@@ -77,11 +77,42 @@
                     <navigationItem key="navigationItem" title="Photo Browser" id="j3s-QR-lSd"/>
                     <connections>
                         <outlet property="photosListTableView" destination="OzT-hQ-ncs" id="G6m-kH-PVd"/>
+                        <segue destination="saq-6n-o8p" kind="show" identifier="openPhotoBrowser" id="Xvz-9m-sWe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="957.97101449275374" y="20.758928571428569"/>
+        </scene>
+        <!--Photo Browser View Controller-->
+        <scene sceneID="RtF-Ng-znz">
+            <objects>
+                <viewController id="saq-6n-o8p" customClass="PhotoBrowserViewController" customModule="PhotosApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eMg-Cn-Ce8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mGP-oz-I1Z">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" red="0.89135362694300513" green="0.89135362694300513" blue="0.89135362694300513" alpha="0.69666043133802813" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mGP-oz-I1Z" firstAttribute="top" secondItem="Nse-9H-saQ" secondAttribute="top" id="ElU-hk-zHT"/>
+                            <constraint firstItem="Nse-9H-saQ" firstAttribute="trailing" secondItem="mGP-oz-I1Z" secondAttribute="trailing" id="Fg6-hp-KMV"/>
+                            <constraint firstItem="mGP-oz-I1Z" firstAttribute="leading" secondItem="Nse-9H-saQ" secondAttribute="leading" id="NP3-v8-jqc"/>
+                            <constraint firstItem="Nse-9H-saQ" firstAttribute="bottom" secondItem="mGP-oz-I1Z" secondAttribute="bottom" id="xdq-fy-JET"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Nse-9H-saQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="mGP-oz-I1Z" id="LBT-BH-diE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qqf-lk-AHR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1712" y="21"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xGc-LZ-5DA">

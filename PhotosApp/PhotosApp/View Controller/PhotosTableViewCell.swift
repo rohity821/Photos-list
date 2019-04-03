@@ -9,7 +9,12 @@
 import UIKit
 import SDWebImage
 
-class PhotosTableViewCell: UITableViewCell {
+protocol PhotosTableCellInterfaceProtocol {
+    func updateCell(withTitle title:String, andThumbUrl thumbUrl:String)
+    func getThumbImage() -> UIImage?
+}
+
+class PhotosTableViewCell: UITableViewCell, PhotosTableCellInterfaceProtocol {
 
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var photoImageView: UIImageView!
@@ -22,8 +27,12 @@ class PhotosTableViewCell: UITableViewCell {
     func updateCell(withTitle title:String, andThumbUrl thumbUrl:String) {
         self.titleLabel.text = title
         if let url = URL(string: thumbUrl) {
-            photoImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"))
+            photoImageView.sd_setImage(with: url, placeholderImage: UIImage(named: Constants.placeholderImage))
         }
+    }
+    
+    func getThumbImage() -> UIImage? {
+        return photoImageView.image
     }
 
 }

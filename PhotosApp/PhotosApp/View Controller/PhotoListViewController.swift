@@ -39,7 +39,22 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 114.0
+        return CGFloat(Constants.photoListCellHeight)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        photosPresenter.didSelectRow(atIndexpath: indexPath, viewController: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.photoBrowserSegue {
+            guard let indexPath = photosListTableView.indexPathForSelectedRow, let controller = segue.destination as? (UIViewController & PhotoBrowserInterfaceProtocol) else{
+                return
+            }
+            if let model = photosPresenter.itemForRow(atIndexpath: indexPath), let cell = photosListTableView.cellForRow(at: indexPath) as? (UITableViewCell & PhotosTableCellInterfaceProtocol) {
+                controller.setImageUrl(urlString: model.url, previewImage: cell.getThumbImage(), title: model.title)
+            }
+        }
     }
     
     func reloadTable() {

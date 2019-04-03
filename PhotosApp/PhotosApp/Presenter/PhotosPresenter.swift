@@ -13,6 +13,7 @@ protocol PhotosPresenterInterfaceProtocol : class {
     func startFetchingImages()
     func numberOfRows() -> Int
     func itemForRow(atIndexpath indexPath:IndexPath) -> ImageModel?
+    func didSelectRow(atIndexpath : IndexPath, viewController:PhotoListViewController)
 }
 
 protocol PhotosPresenterDelegateProtocol : class {
@@ -59,6 +60,10 @@ class PhotosPresenter : PhotosPresenterInterfaceProtocol, PhotosInteractorDelega
             imgModel = datasourceArray[indexPath.row]
         }
         return imgModel
+    }
+    
+    func didSelectRow(atIndexpath: IndexPath, viewController: PhotoListViewController) {
+        viewController.performSegue(withIdentifier: Constants.photoBrowserSegue, sender: viewController)
     }
     
 }
