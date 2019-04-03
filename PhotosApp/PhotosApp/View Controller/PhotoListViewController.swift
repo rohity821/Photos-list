@@ -28,6 +28,7 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         photosListTableView.addSubview(refreshControl)
+        photosListTableView.tableFooterView = UIView()
         photosPresenter.delegate = self
         showLoadingIndicator()
         startFetchingData()
