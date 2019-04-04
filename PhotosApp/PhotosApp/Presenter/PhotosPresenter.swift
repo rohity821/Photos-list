@@ -50,22 +50,28 @@ class PhotosPresenter : PhotosPresenterInterfaceProtocol, PhotosInteractorDelega
     weak var delegate: PhotosPresenterDelegateProtocol?
     
     private var datasourceArray = [ImageModel]()
-    private var photosInteractor : PhotosInteractorInteraceProtocol = PhotosInteractor()
+    private let photosInteractor : PhotosInteractorInteraceProtocol
     
-    init() {
+    init(photosInteractor : PhotosInteractorInteraceProtocol = PhotosInteractor()) {
+        self.photosInteractor = photosInteractor
         photosInteractor.delegate = self;
     }
     
     //MARK: PhotosInteractorDelegateProtocol
-    func didFetchPhotosCompleted(imageModels: [ImageModel]) {
-        print("didFetchPhotosCompleted()")
-        datasourceArray = imageModels
-        delegate?.didFetchImagesSuccessfully()
+    
+    func didFetchPhotos(result: ResultType) {
+        switch result {
+        case .success(imageModels: let model):
+            datasourceArray = model
+            delegate?.didFetchImagesSuccessfully()
+        case .failure(error: _):
+            delegate?.didFetchImagesFailed()
+        }
     }
     
     func didFetchPhotosFailed(error: Error?) {
         print("didFetchPhotosFailed() \(String(describing: error?.localizedDescription))")
-        delegate?.didFetchImagesFailed()
+        
     }
     
     //MARK: PhotosPresenterInterfaceProtocol

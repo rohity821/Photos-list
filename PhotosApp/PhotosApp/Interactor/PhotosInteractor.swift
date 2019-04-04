@@ -8,7 +8,12 @@
 
 import Foundation
 
-protocol PhotosInteractorInteraceProtocol {
+enum ResultType {
+    case success(imageModels: [ImageModel])
+    case failure(error:Error?)
+}
+
+protocol PhotosInteractorInteraceProtocol: class {
     
     var delegate : PhotosInteractorDelegateProtocol? { get set }
     
@@ -18,17 +23,11 @@ protocol PhotosInteractorInteraceProtocol {
     func fetchImages()
 }
 
-protocol PhotosInteractorDelegateProtocol : class{
-    
+protocol PhotosInteractorDelegateProtocol : class {
     /**
      delegate method used to notify the class implementing it that the data is fetched successfully and gives an array of imagemodels in param.
      */
-    func didFetchPhotosCompleted(imageModels: [ImageModel])
-    
-    /**
-     delegate method used to notify the implmenting class that fetching photos call have failed with error
-     */
-    func didFetchPhotosFailed(error:Error?)
+    func didFetchPhotos(result: ResultType)
 }
 
 
@@ -42,11 +41,11 @@ class PhotosInteractor : PhotosInteractorInteraceProtocol {
         PhotosAPITask.fetchImagesfromServer(onSuccess: { [weak self] (imageModels) in
             // Handle Success
             if let imgModels = imageModels {
-                self?.delegate?.didFetchPhotosCompleted(imageModels: imgModels)
+                self?.delegate?.didFetchPhotos(result: .success(imageModels: imgModels))
             }
         }) { [weak self] (error) in
             //Handle Error
-            self?.delegate?.didFetchPhotosFailed(error: error)
+            self?.delegate?.didFetchPhotos(result: .failure(error: error))
         }
     }
     
