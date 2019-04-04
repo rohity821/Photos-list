@@ -36,14 +36,10 @@ protocol PhotosPresenterInterfaceProtocol : class {
 protocol PhotosPresenterDelegateProtocol : class {
     
     /**
-     This is a delegate method of presenter class which notifies view controller that it has fetched data successfully so that view can reload the data from presenter.
+     delegate method used to notify the class implementing it that the data is fetched. Result depends on the ResultType enum. if result is success, it will contain an array of imagemodels. In case of error, it will have an error object
      */
-    func didFetchImagesSuccessfully()
+    func didFetchPhotos(result: ResultType)
     
-    /**
-     This is a delegate method of presenter class which notifies view controller that there was a error in fetching data so that view can handle it accordingly.
-     */
-    func didFetchImagesFailed()
 }
 
 class PhotosPresenter : PhotosPresenterInterfaceProtocol, PhotosInteractorDelegateProtocol {
@@ -52,7 +48,7 @@ class PhotosPresenter : PhotosPresenterInterfaceProtocol, PhotosInteractorDelega
     private var datasourceArray = [ImageModel]()
     private let photosInteractor : PhotosInteractorInteraceProtocol
     
-    init(photosInteractor : PhotosInteractorInteraceProtocol = PhotosInteractor()) {
+    init(photosInteractor : PhotosInteractorInteraceProtocol) {
         self.photosInteractor = photosInteractor
         photosInteractor.delegate = self;
     }
@@ -63,10 +59,10 @@ class PhotosPresenter : PhotosPresenterInterfaceProtocol, PhotosInteractorDelega
         switch result {
         case .success(imageModels: let model):
             datasourceArray = model
-            delegate?.didFetchImagesSuccessfully()
-        case .failure(error: _):
-            delegate?.didFetchImagesFailed()
+        case .failure(let error):
+            print("error occured \(String(describing: error))")
         }
+        delegate?.didFetchPhotos(result: result)
     }
     
     func didFetchPhotosFailed(error: Error?) {

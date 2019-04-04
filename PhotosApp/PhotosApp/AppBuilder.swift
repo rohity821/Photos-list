@@ -7,7 +7,28 @@
 //
 
 import Foundation
+import UIKit
 
 class AppBuilder {
-    private init() {}
+    
+    let url = "http://jsonplaceholder.typicode.com/photos"
+    
+    func getRootViewController() -> UINavigationController? {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let rootController = storyboard.instantiateViewController(withIdentifier: "PhotoListViewController") as? PhotoListViewController
+        
+        let apiTask = PhotosAPITask(serverUrl: url)
+        let interactor = PhotosInteractor(apiTask: apiTask)
+        let presenter = PhotosPresenter(photosInteractor: interactor)
+        rootController?.photosPresenter = presenter
+
+        if let rootVC = rootController {
+         return UINavigationController(rootViewController: rootVC)
+        }
+        return nil
+    }
+    
+    
+    
+    
 }

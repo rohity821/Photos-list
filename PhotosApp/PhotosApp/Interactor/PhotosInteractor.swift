@@ -25,20 +25,24 @@ protocol PhotosInteractorInteraceProtocol: class {
 
 protocol PhotosInteractorDelegateProtocol : class {
     /**
-     delegate method used to notify the class implementing it that the data is fetched successfully and gives an array of imagemodels in param.
+     delegate method used to notify the class implementing it that the data is fetched. Result depends on the ResultType enum. if result is success, it will contain an array of imagemodels. In case of error, it will have an error object
      */
     func didFetchPhotos(result: ResultType)
 }
 
 
 class PhotosInteractor : PhotosInteractorInteraceProtocol {
-    weak var delegate: PhotosInteractorDelegateProtocol?
     
+    weak var delegate: PhotosInteractorDelegateProtocol?
+    private var apiTask : PhotosAPITaskInterfaceProtocol?
+    
+    init(apiTask : PhotosAPITask) {
+        self.apiTask = apiTask
+    }
     
     func fetchImages() {
         print("photosPresenter.startFetchingImages()")
-        
-        PhotosAPITask.fetchImagesfromServer(onSuccess: { [weak self] (imageModels) in
+        apiTask?.fetchImagesfromServer(onSuccess: { [weak self] (imageModels) in
             // Handle Success
             if let imgModels = imageModels {
                 self?.delegate?.didFetchPhotos(result: .success(imageModels: imgModels))

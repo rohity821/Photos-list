@@ -13,7 +13,7 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var photosListTableView: UITableView!
     
-    var photosPresenter : PhotosPresenterInterfaceProtocol = PhotosPresenter()
+    var photosPresenter : PhotosPresenterInterfaceProtocol?
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -26,31 +26,37 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
         photosListTableView.addSubview(refreshControl)
         photosListTableView.tableFooterView = UIView()
-        photosPresenter.delegate = self
-        showLoadingIndicator()
-        startFetchingData()
+        photosPresenter?.delegate = self
+        startFetchingData(showLoader: true)
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-        startFetchingData()
+        startFetchingData(showLoader: false)
     }
     
-    func startFetchingData() {
-        photosPresenter.startFetchingImages()
+    func startFetchingData(showLoader: Bool) {
+        if showLoader {
+            showLoadingIndicator()
+        }
+        photosPresenter?.startFetchingImages()
     }
     
     //MARK: UITableViewDatasource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return photosPresenter.numberOfRows()
+        if let presenter = photosPresenter {
+            return presenter.numberOfRows()
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tableCell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier);
         if let cell = tableCell as? (UITableViewCell & PhotosTableCellInterfaceProtocol),
-            let model = photosPresenter.itemForRow(atIndexpath: indexPath) {
+            let model = photosPresenter?.itemForRow(atIndexpath: indexPath) {
             cell.updateCell(withTitle: model.title, andThumbUrl: model.thumbnailUrl)
             return cell
         }
@@ -62,7 +68,8 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        photosPresenter.didSelectRow(atIndexpath: indexPath, viewController: self)
+//        tableView.deselectRow(at: indexPath, animated: true)
+        photosPresenter?.didSelectRow(atIndexpath: indexPath, viewController: self)
     }
     
     //MARK: Navigation
@@ -71,7 +78,7 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
             guard let indexPath = photosListTableView.indexPathForSelectedRow, let controller = segue.destination as? (UIViewController & PhotoBrowserInterfaceProtocol) else{
                 return
             }
-            if let model = photosPresenter.itemForRow(atIndexpath: indexPath), let cell = photosListTableView.cellForRow(at: indexPath) as? (UITableViewCell & PhotosTableCellInterfaceProtocol) {
+            if let model = photosPresenter?.itemForRow(atIndexpath: indexPath), let cell = photosListTableView.cellForRow(at: indexPath) as? (UITableViewCell & PhotosTableCellInterfaceProtocol) {
                 controller.setImageUrl(urlString: model.url, previewImage: cell.getThumbImage(), title: model.title)
             }
         }
@@ -91,14 +98,14 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     //MARK: PhotosPresenterDelegateProtocol
-    func didFetchImagesSuccessfully() {
+    func didFetchPhotos(result: ResultType) {
         hideLoadingIndicator()
-        reloadTable()
-    }
-    
-    func didFetchImagesFailed() {
-        //Handle error
-        hideLoadingIndicator()
+        switch result {
+        case .success(imageModels: _):
+            reloadTable()
+        default:
+            print("handle error")
+        }
     }
     
     //MARK: Loading Indicator
