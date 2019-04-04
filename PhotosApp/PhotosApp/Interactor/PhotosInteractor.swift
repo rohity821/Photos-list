@@ -9,14 +9,26 @@
 import Foundation
 
 protocol PhotosInteractorInteraceProtocol {
+    
     var delegate : PhotosInteractorDelegateProtocol? { get set }
     
+    /**
+     method initiates the call for fetching images from server. This method is invoked by presenter when viewcontroller asks for data.
+     */
     func fetchImages()
 }
 
 protocol PhotosInteractorDelegateProtocol : class{
+    
+    /**
+     delegate method used to notify the class implementing it that the data is fetched successfully and gives an array of imagemodels in param.
+     */
     func didFetchPhotosCompleted(imageModels: [ImageModel])
-    func didFetchPhotosFailed()
+    
+    /**
+     delegate method used to notify the implmenting class that fetching photos call have failed with error
+     */
+    func didFetchPhotosFailed(error:Error?)
 }
 
 
@@ -34,7 +46,7 @@ class PhotosInteractor : PhotosInteractorInteraceProtocol {
             }
         }) { [weak self] (error) in
             //Handle Error
-            self?.delegate?.didFetchPhotosFailed()
+            self?.delegate?.didFetchPhotosFailed(error: error)
         }
     }
     

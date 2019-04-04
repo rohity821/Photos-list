@@ -9,17 +9,27 @@
 import Foundation
 
 protocol PhotosPresenterInterfaceProtocol : class {
+    
     var delegate : PhotosPresenterDelegateProtocol? {get set}
+    
     /**
      This is interface protocol method of presenter class, via which view controller says that presenter should fetch images
      */
     func startFetchingImages()
     
     /**
-     This is the datasource method for view controller's tableView. This is called from tableview's method numberofRowsInSection
+     This is the datasource method for view controller's tableView. This is called from tableview's method numberofRowsInSection. Method returns an integer value equal to number of rows in section.
      */
     func numberOfRows() -> Int
+    
+    /**
+     This is the datasource method for view controller's tableView. This is called from tableview's method cellforRowAtIndexPath. Method takes current index path as param and returns ImageModel to fill information on that cell.
+     */
     func itemForRow(atIndexpath indexPath:IndexPath) -> ImageModel?
+   
+    /**
+     This method is called user taps on a cell in tableview. Method takes indexpath and view controller as parameter. And correspondingly navigates to another view.
+     */
     func didSelectRow(atIndexpath : IndexPath, viewController:PhotoListViewController)
 }
 
@@ -46,12 +56,6 @@ class PhotosPresenter : PhotosPresenterInterfaceProtocol, PhotosInteractorDelega
         photosInteractor.delegate = self;
     }
     
-    func startFetchingImages() {
-        print("photosPresenter.startFetchingImages()")
-        photosInteractor.fetchImages()
-    }
-    
-    
     //MARK: PhotosInteractorDelegateProtocol
     func didFetchPhotosCompleted(imageModels: [ImageModel]) {
         print("didFetchPhotosCompleted()")
@@ -59,11 +63,16 @@ class PhotosPresenter : PhotosPresenterInterfaceProtocol, PhotosInteractorDelega
         delegate?.didFetchImagesSuccessfully()
     }
     
-    func didFetchPhotosFailed() {
-        print("didFetchPhotosFailed()")
+    func didFetchPhotosFailed(error: Error?) {
+        print("didFetchPhotosFailed() \(String(describing: error?.localizedDescription))")
         delegate?.didFetchImagesFailed()
     }
     
+    //MARK: PhotosPresenterInterfaceProtocol
+    func startFetchingImages() {
+        print("photosPresenter.startFetchingImages()")
+        photosInteractor.fetchImages()
+    }
     
     func numberOfRows() -> Int {
         return datasourceArray.count

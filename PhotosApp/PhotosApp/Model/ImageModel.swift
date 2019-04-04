@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct ImageModel : Codable {
     var albumId : Int
     var id : Int

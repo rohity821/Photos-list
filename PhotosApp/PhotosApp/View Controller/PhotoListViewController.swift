@@ -102,7 +102,6 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     //MARK: Loading Indicator
-    
     /**
      This methods show blocking loading indicator on view.
     */
