@@ -11,6 +11,8 @@
 		A9BFA79D6289AFF73D39AF39 /* Pods_PhotosAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4960536352A62A73B6F2FD9 /* Pods_PhotosAppTests.framework */; };
 		C93255A7225657F100DE88C4 /* PhotosPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93255A6225657F100DE88C4 /* PhotosPresenterTests.swift */; };
 		C93255A922565EC600DE88C4 /* AppBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93255A822565EC600DE88C4 /* AppBuilder.swift */; };
+		C9378EC02257D47F00E10A6B /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9378EBF2257D47F00E10A6B /* ErrorView.swift */; };
+		C9378EC22257D48E00E10A6B /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9378EC12257D48E00E10A6B /* ErrorView.xib */; };
 		C9A21F752252956300C8E62C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A21F742252956300C8E62C /* AppDelegate.swift */; };
 		C9A21F772252956300C8E62C /* PhotoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A21F762252956300C8E62C /* PhotoListViewController.swift */; };
 		C9A21F7A2252956300C8E62C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9A21F782252956300C8E62C /* Main.storyboard */; };
@@ -76,6 +78,8 @@
 		BF0113CC5AD14D092B958689 /* Pods_NetworkFrameworkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkFrameworkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C93255A6225657F100DE88C4 /* PhotosPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPresenterTests.swift; sourceTree = "<group>"; };
 		C93255A822565EC600DE88C4 /* AppBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBuilder.swift; sourceTree = "<group>"; };
+		C9378EBF2257D47F00E10A6B /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		C9378EC12257D48E00E10A6B /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		C9A21F712252956300C8E62C /* PhotosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9A21F742252956300C8E62C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9A21F762252956300C8E62C /* PhotoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +165,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C9378EBE2257D46300E10A6B /* Error View */ = {
+			isa = PBXGroup;
+			children = (
+				C9378EBF2257D47F00E10A6B /* ErrorView.swift */,
+				C9378EC12257D48E00E10A6B /* ErrorView.xib */,
+			);
+			path = "Error View";
+			sourceTree = "<group>";
+		};
 		C9A21F682252956300C8E62C = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +199,7 @@
 		C9A21F732252956300C8E62C /* PhotosApp */ = {
 			isa = PBXGroup;
 			children = (
+				C9378EBE2257D46300E10A6B /* Error View */,
 				C9C3281122552CEC00F29721 /* Constants */,
 				C9BCEB9C22550B9700C36580 /* Model */,
 				C9A3247C2253DDE90085F34A /* Interactor */,
@@ -406,6 +420,7 @@
 				C9A21F7F2252956600C8E62C /* LaunchScreen.storyboard in Resources */,
 				C9A21F7C2252956600C8E62C /* Assets.xcassets in Resources */,
 				C9A21F7A2252956300C8E62C /* Main.storyboard in Resources */,
+				C9378EC22257D48E00E10A6B /* ErrorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +538,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9378EC02257D47F00E10A6B /* ErrorView.swift in Sources */,
 				C9C32810225524B500F29721 /* PhotoBrowserViewController.swift in Sources */,
 				C9A324782253DD0B0085F34A /* PhotosTableViewCell.swift in Sources */,
 				C9A3247B2253DDD00085F34A /* PhotosPresenter.swift in Sources */,

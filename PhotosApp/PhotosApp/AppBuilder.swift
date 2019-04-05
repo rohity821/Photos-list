@@ -21,11 +21,17 @@ class AppBuilder {
         let interactor = PhotosInteractor(apiTask: apiTask)
         let presenter = PhotosPresenter(photosInteractor: interactor)
         rootController?.photosPresenter = presenter
+        rootController?.builder = self
 
         if let rootVC = rootController {
          return UINavigationController(rootViewController: rootVC)
         }
         return nil
+    }
+    
+    func getErrorView() -> ErrorViewInterfaceProtocol {
+        let errorView = ErrorView(frame: .zero)
+        return errorView
     }
     
     

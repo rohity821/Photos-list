@@ -9,11 +9,14 @@
 import UIKit
 import NVActivityIndicatorView
 
-class PhotoListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PhotosPresenterDelegateProtocol {
+class PhotoListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PhotosPresenterDelegateProtocol, ErrorViewDelegateProtocol {
     
     @IBOutlet weak var photosListTableView: UITableView!
     
     var photosPresenter : PhotosPresenterInterfaceProtocol?
+    var builder : AppBuilder?
+    
+    private var errorView : ErrorViewInterfaceProtocol?
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -31,7 +34,15 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
         photosListTableView.addSubview(refreshControl)
         photosListTableView.tableFooterView = UIView()
         photosPresenter?.delegate = self
+        
         startFetchingData(showLoader: true)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        if let errView = errorView as? UIView {
+            errView.frame = view.bounds
+        }
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
@@ -68,7 +79,6 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
         photosPresenter?.didSelectRow(atIndexpath: indexPath, viewController: self)
     }
     
@@ -84,10 +94,11 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    //MARK: Private functions
     /**
      This method reloads table with new data set, if it is not called on main thread it checks and call itself on main thread so that table reload happens on main thread.
      */
-    func reloadTable() {
+    private func reloadTable() {
         if !Thread.isMainThread {
             DispatchQueue.main.async {
                 self.reloadTable()
@@ -97,22 +108,43 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
         photosListTableView.reloadData()
     }
     
+    /**
+     This method shows error view in case there is a failure or no data to be shown
+    */
+    private func showErrorView(message:String?) {
+        if (errorView == nil) {
+            errorView = builder?.getErrorView()
+            errorView?.delegate = self
+        }
+        if let errView = errorView as? UIView{
+            view.addSubview(errView)
+        }
+    }
+    
     //MARK: PhotosPresenterDelegateProtocol
     func didFetchPhotos(result: ResultType) {
         hideLoadingIndicator()
         switch result {
         case .success(imageModels: _):
             reloadTable()
-        default:
-            print("handle error")
+        case .failure(error: _):
+            self.showErrorView(message: nil)
         }
+    }
+    
+    //MARK: Error View Interface Protocol
+    func errorViewDidTapRetry() {
+        if let errView = errorView as? UIView {
+            errView.removeFromSuperview()
+        }
+        startFetchingData(showLoader: true)
     }
     
     //MARK: Loading Indicator
     /**
      This methods show blocking loading indicator on view.
     */
-    func showLoadingIndicator() {
+    private func showLoadingIndicator() {
         let activityData = ActivityData(size: nil, message: nil, messageFont: nil, messageSpacing: nil, type: .ballClipRotateMultiple, color: nil, padding: nil, displayTimeThreshold: nil, minimumDisplayTime: nil, backgroundColor: nil, textColor: nil)
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, nil)
     }
@@ -120,7 +152,7 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
     /**
      This method hides loading indicator and ends refresh control animation whichever applicable, if it is not called on main thread it checks and call itself on main thread.
      */
-    func hideLoadingIndicator() {
+    private func hideLoadingIndicator() {
         if !Thread.isMainThread {
             DispatchQueue.main.async {
                 self.hideLoadingIndicator()
