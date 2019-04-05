@@ -40,6 +40,9 @@ class ErrorView: UIView, ErrorViewInterfaceProtocol {
         super.layoutSubviews()
         contentView.frame = self.bounds
     }
+    @IBAction func retryButtonTapped(_ sender: UIButton) {
+        delegate?.errorViewDidTapRetry()
+    }
     
     private func loadViewNib() {
         Bundle.main.loadNibNamed("ErrorView", owner: self, options: nil)

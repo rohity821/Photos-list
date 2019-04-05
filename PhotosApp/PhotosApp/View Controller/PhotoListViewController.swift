@@ -8,6 +8,7 @@
 
 import UIKit
 import NVActivityIndicatorView
+import Reachability
 
 class PhotoListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PhotosPresenterDelegateProtocol, ErrorViewDelegateProtocol {
     
@@ -16,7 +17,9 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
     var photosPresenter : PhotosPresenterInterfaceProtocol?
     var builder : AppBuilder?
     
+    private let reachability = Reachability()!
     private var errorView : ErrorViewInterfaceProtocol?
+    private var isReachable = true
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -31,11 +34,30 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
+        isReachable = reachability.connection != .none
         photosListTableView.addSubview(refreshControl)
         photosListTableView.tableFooterView = UIView()
         photosPresenter?.delegate = self
         
         startFetchingData(showLoader: true)
+        
+        
+        reachability.whenReachable = { [weak self] reachability in
+           self?.isReachable = true
+        }
+        reachability.whenUnreachable = { [weak self] _ in
+            self?.isReachable = false
+        }
+        
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
+    }
+    
+    deinit {
+        reachability.stopNotifier()
     }
     
     override func viewWillLayoutSubviews() {
@@ -50,6 +72,14 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func startFetchingData(showLoader: Bool) {
+        if !isReachable {
+            if photosPresenter?.numberOfRows() == 0 {
+                showErrorView(message: Constants.networkUnreachableString)
+            }
+            endRefresing()
+            return
+        }
+        
         if showLoader {
             showLoadingIndicator()
         }
@@ -112,12 +142,24 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
      This method shows error view in case there is a failure or no data to be shown
     */
     private func showErrorView(message:String?) {
+        endRefresing()
         if (errorView == nil) {
             errorView = builder?.getErrorView()
             errorView?.delegate = self
         }
+        errorView?.updateError(message: message, buttonTitle: nil)
         if let errView = errorView as? UIView{
+            if view.subviews.contains(errView) {
+                return
+            }
+            
             view.addSubview(errView)
+        }
+    }
+    
+    private func endRefresing() {
+        if refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
         }
     }
     
@@ -165,7 +207,5 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
             NVActivityIndicatorPresenter.sharedInstance.stopAnimating(nil)
         }
     }
-
-
 }
 

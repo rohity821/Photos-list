@@ -2,23 +2,27 @@ PODS:
   - NVActivityIndicatorView (4.6.1):
     - NVActivityIndicatorView/Presenter (= 4.6.1)
   - NVActivityIndicatorView/Presenter (4.6.1)
+  - ReachabilitySwift (4.3.0)
   - SDWebImage (4.4.6):
     - SDWebImage/Core (= 4.4.6)
   - SDWebImage/Core (4.4.6)
 
 DEPENDENCIES:
   - NVActivityIndicatorView
+  - ReachabilitySwift
   - SDWebImage (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - NVActivityIndicatorView
+    - ReachabilitySwift
     - SDWebImage
 
 SPEC CHECKSUMS:
   NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
+  ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
 
-PODFILE CHECKSUM: f4e8104d9b3a6c7901f21a0422f6172deb1b9433
+PODFILE CHECKSUM: 3e7b33c0f350ace015f843668103727161cac0fa
 
 COCOAPODS: 1.6.1

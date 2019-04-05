@@ -1,27 +1,6 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'CommonLibrarySwift' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for CommonLibrarySwift
-
-end
-
-target 'NetworkFramework' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for NetworkFramework
-
-  target 'NetworkFrameworkTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-end
-
 target 'PhotosApp' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
@@ -29,6 +8,7 @@ target 'PhotosApp' do
   # Pods for PhotosApp
     pod 'SDWebImage', '~> 4.0'
     pod 'NVActivityIndicatorView'
+    pod 'ReachabilitySwift'
 
   target 'PhotosAppTests' do
     inherit! :search_paths
