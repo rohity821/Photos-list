@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct ImageModel : Codable {
-    var albumId : Int
-    var id : Int
-    var title : String
-    var url : String
-    var thumbnailUrl : String
+struct ImageModel : Decodable {
+    let albumId : Int
+    let id : Int
+    let title : String
+    let url : String
+    let thumbnailUrl : String
 
 }
